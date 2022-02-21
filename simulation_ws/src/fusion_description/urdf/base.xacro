@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find uuv_descriptions)/urdf/common.urdf.xacro"/>
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/sensor_snippets.xacro"/>
+  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/snippets.xacro"/>  
+  <xacro:include filename="$(find fusion_description)/urdf/snippets.xacro"/>
+
+  <xacro:property name="mass" value="27.875"/>
+  <xacro:property name="cog" value="0 0 0"/>
+  <xacro:property name="rho" value="1028"/>
+
+  <xacro:property name="visual_mesh_file" value="file://$(find fusion_description)/meshes/vehicle.dae"/>
+  <xacro:property name="collision_mesh_file" value="file://$(find fusion_description)/meshes/vehicle.stl"/>
+
+  <xacro:macro name="fusion_base" params="namespace *gazebo">
+      <link name="${namespace}/base_link">
+        <inertial>
+          <mass value="${mass}" />
+          <origin xyz="${cog}" rpy="0 0 0"/>
+          <inertia ixx="1000.0" ixy="0.0" ixz="0.0" iyy="1000.0" iyz="0.0" izz="1.284" />
+        </inertial>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+          <geometry>
+            <mesh filename="${visual_mesh_file}" scale="1 1 1" />
+          </geometry>
+        </visual>
+
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+          <geometry>
+            <mesh filename="${collision_mesh_file}" scale="1 1 1" />
+          </geometry>
+        </collision>
+      </link>
+
+    <gazebo reference="${namespace}/base_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+
+    <xacro:insert_block name="gazebo"/>
+    <xacro:include filename="$(find fusion_description)/urdf/actuators.xacro"/>
+    <xacro:include filename="$(find fusion_description)/urdf/sensors.xacro"/>
+
+  </xacro:macro>
+
+</robot>

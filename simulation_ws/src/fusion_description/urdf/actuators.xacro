@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- Seeing from the top thrusters ID are:
+     bow
+     3 0    Longitudinal vectored bow thrusters
+     4 1    Vertical thrusters
+     5 2    Longitudinal vectored stern thrusters
+      6     Pitch thruster
+     stern
+    Note that the 3 port side thrusters (id 3, 4 and 5) are counter rotating
+ -->
+    <xacro:property name="prop_port_mesh_file" value="file://$(find fusion_description)/meshes/prop-port.dae"/>
+    <xacro:property name="prop_stbd_mesh_file" value="file://$(find fusion_description)/meshes/prop-star.dae"/>
+    <xacro:property name="prop_pitch_mesh_file" value="file://$(find fusion_description)/meshes/prop-pitch.dae"/>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="0" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_port_mesh_file}">
+        <origin rpy="0.0 0.0 ${35.0*d2r}" xyz="0.271 -0.171 0.010" />
+    </xacro:thruster_macro>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="1" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_port_mesh_file}">
+        <origin rpy="-1.5708 -1.3963 1.5708" xyz="0.002 -0.154 0.029" />
+    </xacro:thruster_macro>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="2" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_port_mesh_file}">
+        <origin rpy="0.0 0.0 ${145.0*d2r}" xyz="-0.264 -0.163 0.010" />
+    </xacro:thruster_macro>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="3" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_stbd_mesh_file}">
+        <origin rpy="0.0 0.0 ${145.0*d2r}" xyz="0.271 0.171 0.010" />
+    </xacro:thruster_macro>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="4" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_stbd_mesh_file}">
+        <origin rpy="1.5708 1.3963 1.5708" xyz="0.002 0.154 0.029" />
+    </xacro:thruster_macro>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="5" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_stbd_mesh_file}">
+        <origin rpy="0.0 0.0 ${35.0*d2r}" xyz="-0.264 0.163 0.010" />
+    </xacro:thruster_macro>
+
+    <xacro:thruster_macro robot_namespace="${namespace}" thruster_id="6" visual_rpy="0.0 ${90.0*d2r} 0.0" prop_mesh_file="${prop_pitch_mesh_file}">
+        <origin rpy="0.0 ${-90.0*d2r} 0.0" xyz="-0.3400 0.0 0.094" />
+    </xacro:thruster_macro>
+</robot>

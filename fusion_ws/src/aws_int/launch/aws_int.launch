@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="aws_int" type="api_pull.py" name="api_pull" output="screen" required="true"/>
+</launch>

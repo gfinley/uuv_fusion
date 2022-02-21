@@ -1,0 +1,16 @@
+<launch>
+  <include file="$(find cavr_utils)/launch/remus.machine" />
+  <arg name="machine" default="localhost"/>
+  <arg name="rate" default="100.0"/>
+
+  <arg name="x_term" default="False"/>
+  <arg if="$(arg x_term)" name="prefix" value="xterm -e"/>
+  <arg unless="$(arg x_term)" name="prefix" value="" />
+
+  <node pkg="ros_msg_converter" type="ros_msg_converter_remus.py" name="ros_msg_converter_remus" machine="$(arg machine)" output="screen" launch-prefix="$(arg prefix)"
+>
+    <param name="rate" value="$(arg rate)" />
+  </node>
+   
+
+</launch>

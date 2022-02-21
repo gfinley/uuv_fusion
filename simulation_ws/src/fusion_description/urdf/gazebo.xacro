@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!-- todo COB and volume -->
+    <xacro:property name="fusion_cob" value="0 0 0.05"/>
+    <xacro:property name="fusion_volume" value="0.0405"/>
+    <xacro:property name="fusion_length" value="0.686"/>
+    <xacro:property name="fusion_width"  value="0.477"/>
+    <xacro:property name="fusion_height" value="0.275"/>
+
+    <xacro:macro name="fusion_hydro_model" params="namespace">
+      <link name="${namespace}/base_link">
+        <neutrally_buoyant>1</neutrally_buoyant>
+        <volume>${fusion_volume}</volume>
+        <box>
+          <width>${fusion_width}</width>
+          <length>${fusion_length}</length>
+          <height>${fusion_height}</height>
+        </box>
+
+        <center_of_buoyancy>${fusion_cob}</center_of_buoyancy>
+        <hydrodynamic_model>
+          <type>fossen</type>
+          <added_mass>
+            20      0       0       0       0       0 
+            0      30       0       0       0       0  
+            0       0      80       0       0       0 
+            0       0       0       0       0       0 
+            0       0       0       0       0       0 
+            0       0       0       0       0       .5
+          </added_mass>
+          <linear_damping>
+            -0.2 -5.1 -4.1879 -3000.0 -3000.0 -2.248
+          </linear_damping>
+          <quadratic_damping>
+            -25 -50.3 -40.9649  -3000.0 -3000.0 -2.448
+          </quadratic_damping>
+        </hydrodynamic_model>
+      </link>
+    </xacro:macro>
+
+</robot>
