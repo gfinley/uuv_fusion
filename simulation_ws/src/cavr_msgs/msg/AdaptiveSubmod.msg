@@ -1,0 +1,12 @@
+Header header
+string child_frame_id
+cavr_msgs/UXV_State[] uxv_states
+float64 total_utility
+float64 sensor_utility
+float64 comms_utility
+float64 graph_utility
+float64 sensor_weight
+float64 comms_weight
+float64[] adj_matrix
+bool recalculate
+bool accept

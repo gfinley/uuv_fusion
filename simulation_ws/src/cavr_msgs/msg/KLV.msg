@@ -1,0 +1,17 @@
+Header header
+string platform_id
+string image_source_sensor
+float64 airframe_heading
+float64 airframe_pitch
+float64 airframe_roll
+float64 sensor_latitude
+float64 sensor_longitude
+float64 sensor_true_altitude
+float64 sensor_horiz_fov
+float64 sensor_vert_fov
+float64 sensor_azimuth
+float64 sensor_elevation
+float64 slant_range
+float64 target_latitude
+float64 target_longitude
+int16 snr

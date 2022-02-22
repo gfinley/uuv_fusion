@@ -1,0 +1,16 @@
+  Header header
+  string vehicle_name
+  int32 vehicle_number
+  string vehicle_type
+  string child_frame_id
+  string utm_zone
+  sensor_msgs/NavSatFix navsatfix
+  geometry_msgs/PoseWithCovariance pose
+  geometry_msgs/TwistWithCovariance twist
+  float64 altitude
+  float64 velocity
+  bool fixed_position
+  int8 current_wpt_id 
+  int8 current_wpt_pct
+  int8 msn_completion_pct
+  int8 power_remaining_pct

@@ -1,0 +1,14 @@
+<launch>
+  <arg name="launch_locally" default="True"/>
+
+  <!-- MACHINE DEFINITIONS -->
+  <group if="$(arg launch_locally)">
+    <machine name="cavr" address="localhost" user="$(env USER)" default="false" env-loader="$(find cavr_utils)/launch/env.sh"/>
+    <machine name="localhost" address="localhost" user="$(env USER)" default="false" env-loader="$(find cavr_utils)/launch/env.sh"/>    
+  </group>
+  
+  <group unless="$(arg launch_locally)">
+    <machine name="localhost" address="localhost" user="$(env USER)" default="false" env-loader="$(find cavr_utils)/launch/env.sh"/>  
+    <machine name="cavr" address="cavr" user="cavr" default="true" env-loader="$(find cavr_utils)/launch/env.sh"/>
+  </group>
+</launch>

@@ -1,0 +1,12 @@
+Header header
+int32 id
+geometry_msgs/Point center_point
+geometry_msgs/Point nw_corner
+geometry_msgs/Point ne_corner
+geometry_msgs/Point se_corner
+geometry_msgs/Point sw_corner
+geometry_msgs/Point[] corners
+geometry_msgs/Point dimensions
+int32 rows
+int32 cols
+int32 resolution

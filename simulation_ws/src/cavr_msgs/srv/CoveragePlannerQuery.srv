@@ -1,0 +1,41 @@
+#Frame id
+string frame_id
+
+#Type of coverage 
+string coverage_type
+
+#Map bounds
+geometry_msgs/Polygon[] map_boundary
+
+#Vehicle start position
+geometry_msgs/PoseStamped start_position
+
+#Vehicle end_position
+geometry_msgs/PoseStamped end_position
+
+cavr_msgs/Feature[] features
+
+#Voronoi partition (for later)
+
+#Configuration Entropy (for later)
+
+---
+
+#series of waypoints
+cavr_msgs/Path[] path
+
+#Total mission length
+float64 mission_length_meters
+
+#Total vehicle uncertainty
+float64 total_mission_uncertainty
+
+#Temporal vehicle uncertainty
+geometry_msgs/PoseWithCovarianceStamped[] TemporalVehicleVariance
+
+#Total reduction in map uncertainty
+geometry_msgs/PoseWithCovarianceSTamped[] GridMapVariance
+
+
+
+

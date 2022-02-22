@@ -1,0 +1,4 @@
+.project
+.pydevproject
+*.pyc
+launch/env.sh

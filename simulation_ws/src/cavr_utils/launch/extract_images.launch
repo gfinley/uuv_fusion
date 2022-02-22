@@ -1,0 +1,7 @@
+<launch>
+  <arg name="image_transport" default="compressed"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" output="screen" cwd="ROS_HOME">
+    <param name="image_transport" value="$(arg image_transport)" /> 
+    <remap from="image" to="/sonar_2_xy_c"/>
+  </node>
+</launch>

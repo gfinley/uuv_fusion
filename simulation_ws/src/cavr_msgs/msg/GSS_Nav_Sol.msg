@@ -1,0 +1,46 @@
+Header header
+float64 unix_time
+int64 count_publish
+string vehicle
+float64 attitude_phi
+float64 attitude_theta
+float64 attitude_psi
+float64 attitude_dot_phi
+float64 attitude_dot_theta
+float64 attitude_dot_psi
+float64 attitude_acceleration_phi
+float64 attitude_acceleration_theta
+float64 attitude_acceleration_psi
+float64 relative_position_N
+float64 relative_position_E
+float64 relative_position_D
+float64 relative_position_dot_N
+float64 relative_position_dot_E
+float64 relative_position_dot_D
+float64 relative_acceleration_N
+float64 relative_acceleration_E
+float64 relative_acceleration_D
+float64 absolute_position_Lon
+float64 absolute_position_Lat
+float64 absolute_position_Elev
+float64 speed_over_ground
+float64 course_over_ground
+float64 altitude_above_bottom
+float64 depth
+float64 initial_lonlat_fix_Lon
+float64 initial_lonlat_fix_Lat
+float64 last_lonlat_fix_Lon
+float64 last_lonlat_fix_Lat
+float64 imu_error
+float64 dvl_error
+bool attitude_ok
+bool depth_ok
+bool altitude_ok
+bool speed_ok
+bool relative_position_ok
+bool absolute_position_ok
+bool have_bottom_lock
+
+
+
+

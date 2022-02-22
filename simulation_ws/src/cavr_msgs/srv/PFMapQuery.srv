@@ -1,0 +1,5 @@
+# This message is to test the particle filters ability to query a map.
+
+sensor_msgs/PointCloud pc
+---
+sensor_msgs/PointCloud pc
