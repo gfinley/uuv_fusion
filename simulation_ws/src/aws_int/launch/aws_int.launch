@@ -1,5 +1,5 @@
 <launch>
-    <include file="$(find uuv_gazebo_worlds)/launch/auv_underwater_world.launch.launch">
+    <include file="$(find uuv_gazebo_worlds)/launch/auv_underwater_world.launch"/>
     <include file="$(find fusion_description)/launch/upload.launch">
         <arg name="mode" value="default"/>
         <arg name="x" value="0"/>
