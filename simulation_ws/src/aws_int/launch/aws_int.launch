@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find uuv_gazebo_worlds)/launch/auv_underwater_world.launch.launch">
+    <include file="$(find fusion_description)/launch/upload.launch">
+        <arg name="mode" value="default"/>
+        <arg name="x" value="0"/>
+        <arg name="y" value="0"/>
+        <arg name="z" value="-10"/>
+        <arg name="namespace" value="fusion"/>
+    </include>
+    <node pkg="aws_int" type="api_pull.py" name="api_pull" output="screen" required="true"/>
+</launch>
