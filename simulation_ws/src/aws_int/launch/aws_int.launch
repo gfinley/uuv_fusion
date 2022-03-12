@@ -7,5 +7,7 @@
         <arg name="z" value="-10"/>
         <arg name="namespace" value="fusion"/>
     </include>
+    <include file="$(find ros_msg_converter)/launch/ros_msg_converter_fusion.launch"/>
     <node pkg="aws_int" type="api_pull.py" name="api_pull" output="screen" required="true"/>
+
 </launch>
