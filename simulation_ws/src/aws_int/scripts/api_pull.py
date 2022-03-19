@@ -31,7 +31,10 @@ def callback(data):
             'time'  :   time_now,
             'robot_ID' : robot_ID,
             'episode' : episode_ID,
-            'command' : command,
+            
+            #commands
+            
+            
             
             
             'position_X' : data.pose.pose.position.x,
