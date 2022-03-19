@@ -16,20 +16,48 @@ class goal:
 goal = goal(20,20,-50)
 command = [0,0,0,0,0,0,0]
 
+
+
 #make the node to pull topics
 def callback(data):
     reward = calclate_reward(goal,data)
+    robot_ID = 1
+    episode_ID = 1
+    time_now = time.time()
     myobj = {
-            'pose'      : data.pose.pose,
-            'positionX' : data.pose.pose.position.x,
-            'positionY' : data.pose.pose.position.y,
-            'positionZ' : data.pose.pose.position.z,
+           # 'pose'      : data.pose.pose,
+           #POSE DATA
+            'episode_ID'    :   str(robot_ID) + str('_') + str(episode_ID),
+            'time'  :   time_now,
+            'robot_ID' : robot_ID,
+            'episode' : episode_ID,
+            'command' : command,
+            
+            
+            'position_X' : data.pose.pose.position.x,
+            'position_Y' : data.pose.pose.position.y,
+            'position_Z' : data.pose.pose.position.z,
+            
+            'Quaternion_X' : data.pose.pose.orientation.x,
+            'Quaternion_Y' : data.pose.pose.orientation.y,
+            'Quaternion_Z' : data.pose.pose.orientation.z,
+            
+            #TWIST DATA
+            'linear_X' : data.twist.twist.linear.x,
+            'linear_Y' : data.twist.twist.linear.y,
+            'linear_Z' : data.twist.twist.linear.z,
+            
+            'angular_X' : data.twist.twist.angular.x,
+            'angular_Y' : data.twist.twist.angular.y,
+            'angular_Z' : data.twist.twist.angular.z,
+            #'twist_linear'      : data.twist.linear,
+            #'twist_angular'      : data.twist.angular,
             'reward'    : reward
             }
     x = requests.post(url, data = myobj)
     #command[0] = command[0] + int(x.text[0])
     print(x.text)
-    print("the current reward is" + str(reward))
+    print("the current reward is " + str(reward))
     
     #add the publishment of commands to fusion
     
